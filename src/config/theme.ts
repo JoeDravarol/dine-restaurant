@@ -76,13 +76,13 @@ const theme = createTheme({
     },
     body1: {
       fontSize: '1.25rem', // 20px
-      lineHeight: '1.875', // 30px
+      lineHeight: '1.875rem', // 30px
       fontWeight: 400,
     },
     body2: {
       fontSize: '1rem', // 16px
       lineHeight: '1.625rem', // 26px
-      fontWeight: 300,
+      fontWeight: 400,
     },
   },
   breakpoints: {
