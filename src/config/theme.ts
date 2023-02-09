@@ -2,7 +2,7 @@ import { createTheme } from '@mui/material/styles';
 import { League_Spartan } from '@next/font/google';
 
 export const leagueSpartan = League_Spartan({
-  weight: ['300', '400', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
@@ -35,17 +35,17 @@ declare module '@mui/material/styles' {
 const theme = createTheme({
   palette: {
     primary: {
-      main: 'hsl(0°, 0%, 7%)', // Cod Gray
+      main: 'hsl(0, 0%, 7%)', // Cod Gray
       contrastText: '#FFF',
     },
     secondary: {
-      main: 'hsl(27°, 22%, 51%)', // Beaver
+      main: 'hsl(27, 22%, 51%)', // Beaver
       contrastText: '#FFF',
     },
     neutral: {
-      mirage: 'hsl(234°, 30%, 13%)',
-      ebonyClay: 'hsl(218°, 21%, 18%)',
-      shuttleGray: 'hsl(217°, 14%, 42%)',
+      mirage: 'hsl(234, 30%, 13%)',
+      ebonyClay: 'hsl(218, 21%, 18%)',
+      shuttleGray: 'hsl(217, 14%, 42%)',
     },
   },
   typography: {
