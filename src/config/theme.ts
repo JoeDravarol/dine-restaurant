@@ -84,6 +84,13 @@ const theme = createTheme({
       lineHeight: '1.625rem', // 26px
       fontWeight: 400,
     },
+    button: {
+      fontSize: '1.063rem', // 17px
+      lineHeight: '1rem', // 16px
+      letterSpacing: '0.156rem', // 2.5px
+      fontWeight: 600,
+      color: '#FFF',
+    },
   },
   breakpoints: {
     keys: [
