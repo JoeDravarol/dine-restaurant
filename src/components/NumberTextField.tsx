@@ -5,7 +5,7 @@ import React from 'react';
 import IconMinus from '@/assets/icons/icon-minus.svg';
 import IconPlus from '@/assets/icons/icon-plus.svg';
 
-const StyledTextField = styled(TextField)(({ theme }) => ({
+const StyledTextField = styled(TextField)(() => ({
   height: 43,
   input: {
     fontSize: '1.25rem', // 20px
@@ -18,8 +18,7 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-
-type Props  = TextFieldProps & {
+type Props = TextFieldProps & {
   handlePlusClick?: React.MouseEventHandler<HTMLButtonElement>;
   handleMinusClick?: React.MouseEventHandler<HTMLButtonElement>;
 }

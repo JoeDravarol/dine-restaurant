@@ -3,7 +3,11 @@ import React from 'react';
 
 import PatternDivide from '@/assets/patterns/pattern-divide.svg';
 
-const Container: React.FC<ContainerProps> = ({ children, ...rest }) => {
+type Props = ContainerProps & {
+  component?: React.ElementType
+}
+
+const Container: React.FC<Props> = ({ children, ...rest }) => {
   return (
     <MuiContainer sx={{ fontSize: 0 }} {...rest}>
       <PatternDivide />

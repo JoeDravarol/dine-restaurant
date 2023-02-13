@@ -11,7 +11,7 @@ import Dropdown from '@/components/Dropdown';
 import NumberTextField from '@/components/NumberTextField';
 import TextField from '@/components/TextField';
 
-const HeaderContainer = styled(Box)(({ theme }) => ({
+const HeaderContainer = styled(Box)(() => ({
   width: 826,
   height: 200,
   marginInline: 'auto',
@@ -25,7 +25,7 @@ const FixedContainer = styled(Container)(({ theme }) => ({
   color: theme.palette.neutral.mirage,
 }));
 
-const ColorCircle = styled(Box)(({ theme }) => ({
+const ColorCircle = styled(Box)(() => ({
   height: 64,
   width: 64,
   borderRadius: '50%',
@@ -42,7 +42,7 @@ const TypographyGridContainer = styled(GridContainer)(({ theme }) => ({
   gridGap: theme.spacing(2.625),
 }));
 
-const ButtonsGridContainer = styled(GridContainer)(({ theme }) => ({
+const ButtonsGridContainer = styled(GridContainer)(() => ({
   gridTemplateColumns: '1fr 778px',
   gridGap: 'revert',
   alignItems: 'center',
@@ -60,7 +60,7 @@ const ButtonContainer = styled(Stack)(({ theme }) => ({
   alignItems: 'center',
 }));
 
-const ButtonStateTypography = styled(Typography)(({ theme }) => ({
+const ButtonStateTypography = styled(Typography)(() => ({
   fontSize: '0.813rem',
   lineHeight: '1.438rem',
   letterSpacing: 'revert',
