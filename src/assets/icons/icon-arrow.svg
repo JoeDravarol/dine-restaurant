@@ -1,1 +1,2 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="11"><path fill="none" stroke="#9E7F66" stroke-width="2" d="M1 1l8 8 8-8"/></svg>
+<!-- Default width="18" height="11" -->
+<svg xmlns="http://www.w3.org/2000/svg" width="current" height="current" viewBox="0 0 18 11"><path fill="none" stroke="#9E7F66" stroke-width="2" d="M1 1l8 8 8-8"/></svg>

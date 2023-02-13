@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, MenuItem, Stack, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import React from 'react';
 
@@ -7,6 +7,9 @@ import PatternCurveTopRight from '@/assets/patterns/pattern-curve-top-left.svg';
 import PatternLines from '@/assets/patterns/pattern-lines.svg';
 import Button from '@/components/Button';
 import Container from '@/components/Container';
+import Dropdown from '@/components/Dropdown';
+import NumberTextField from '@/components/NumberTextField';
+import TextField from '@/components/TextField';
 
 const HeaderContainer = styled(Box)(({ theme }) => ({
   width: 826,
@@ -45,6 +48,11 @@ const ButtonsGridContainer = styled(GridContainer)(({ theme }) => ({
   alignItems: 'center',
 }));
 
+const FormGridContainer = styled(GridContainer)(({ theme }) => ({
+  gridTemplateRows: '43px 43px 62px',
+  gridRowGap: theme.spacing(3.25),
+}));
+
 const ButtonContainer = styled(Stack)(({ theme }) => ({
   height: 198,
   borderBottomLeftRadius: 100,
@@ -65,8 +73,20 @@ const ButtonStateTypography = styled(Typography)(({ theme }) => ({
 }));
 
 const DesignSystem: React.FC = () => {
+  const [number, setNumber] = React.useState(1);
   const alphabet = [...Array(26).keys()].map(i => String.fromCharCode(i + 65)).join(' ');
   const symbols = '!@#$%^&*()';
+  const selectValue = '';
+  const min = 1;
+  const max = 6;
+
+  const handleMinusClick = () => {
+    if (number > min) setNumber(prevState => prevState - 1);
+  };
+
+  const handlePlusClick = () => {
+    if (number >= min && number < max ) setNumber(prevState => prevState + 1);
+  };
 
   return (
     <>
@@ -581,6 +601,160 @@ const DesignSystem: React.FC = () => {
               </Box>
             </ButtonContainer>
           </ButtonsGridContainer>
+        </FixedContainer>
+
+        <FixedContainer sx={{ marginBottom: 12.5 }} component="section" disableGutters>
+          <Typography variant="h2" mt={6.875} mb={8} color="neutral.ebonyClay">4. Form elements</Typography>
+
+          <Box component="section" mb={6.25}>
+            <Typography
+              variant="h3"
+              fontSize="0.75rem"
+              lineHeight="0.69rem"
+              textTransform="uppercase"
+              letterSpacing="0.234rem"
+              color="neutral.ebonyClay"
+              mb={5}
+            >
+              Text field
+            </Typography>
+
+            <FormGridContainer alignItems="center">
+              <Typography
+                variant="h3"
+                fontSize="0.813rem"
+                lineHeight="1.125rem"
+                letterSpacing="revert"
+                color="secondary.main"
+              >
+                Normal
+              </Typography>
+              <TextField placeholder="Name" fullWidth />
+
+              <Typography
+                variant="h3"
+                fontSize="0.813rem"
+                lineHeight="1.125rem"
+                letterSpacing="revert"
+                color="secondary.main"
+              >
+                Active
+              </Typography>
+              <TextField placeholder="Name" value="John Appleseed" fullWidth />
+
+              <Typography
+                variant="h3"
+                fontSize="0.813rem"
+                lineHeight="1.125rem"
+                letterSpacing="revert"
+                color="secondary.main"
+              >
+                Error
+              </Typography>
+              <TextField
+                placeholder="Name"
+                fullWidth
+                error
+                helperText="This field is required"
+              />
+            </FormGridContainer>
+          </Box>
+
+          <Box component="section" mb={6.25}>
+            <Typography
+              variant="h3"
+              fontSize="0.75rem"
+              lineHeight="0.69rem"
+              textTransform="uppercase"
+              letterSpacing="0.234rem"
+              color="neutral.ebonyClay"
+              mb={5}
+            >
+              Dropdown
+            </Typography>
+
+            <FormGridContainer alignItems="center">
+              <Typography
+                variant="h3"
+                fontSize="0.813rem"
+                lineHeight="1.125rem"
+                letterSpacing="revert"
+                color="secondary.main"
+              >
+                Normal
+              </Typography>
+              <Dropdown
+                value={selectValue}
+                displayEmpty
+              >
+                <MenuItem value="">Example dropdown</MenuItem>
+              </Dropdown>
+
+              <Typography
+                variant="h3"
+                fontSize="0.813rem"
+                lineHeight="1.125rem"
+                letterSpacing="revert"
+                color="secondary.main"
+              >
+                Inactive
+              </Typography>
+              <Dropdown
+                value={selectValue}
+                displayEmpty
+                disabled
+              >
+                <MenuItem value="">Example dropdown</MenuItem>
+              </Dropdown>
+            </FormGridContainer>
+          </Box>
+
+          <Box component="section">
+            <Typography
+              variant="h3"
+              fontSize="0.75rem"
+              lineHeight="0.69rem"
+              textTransform="uppercase"
+              letterSpacing="0.234rem"
+              color="neutral.ebonyClay"
+              mb={5}
+            >
+              Numbers
+            </Typography>
+
+            <FormGridContainer alignItems="center">
+              <Typography
+                variant="h3"
+                fontSize="0.813rem"
+                lineHeight="1.125rem"
+                letterSpacing="revert"
+                color="secondary.main"
+              >
+                Normal
+              </Typography>
+              <NumberTextField
+                handlePlusClick={handlePlusClick}
+                handleMinusClick={handleMinusClick}
+                value={`${number} people`}
+              />
+
+              <Typography
+                variant="h3"
+                fontSize="0.813rem"
+                lineHeight="1.125rem"
+                letterSpacing="revert"
+                color="secondary.main"
+              >
+                Inactive
+              </Typography>
+              <NumberTextField
+                handlePlusClick={handlePlusClick}
+                handleMinusClick={handleMinusClick}
+                value="4 people"
+                disabled
+              />
+            </FormGridContainer>
+          </Box>
         </FixedContainer>
       </Box>
     </>

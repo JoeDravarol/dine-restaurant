@@ -42,6 +42,9 @@ const theme = createTheme({
       main: 'hsl(27, 22%, 51%)', // Beaver
       contrastText: '#FFF',
     },
+    error: {
+      main: '#B54949',
+    },
     neutral: {
       mirage: 'hsl(234, 30%, 13%)',
       ebonyClay: 'hsl(218, 21%, 18%)',
