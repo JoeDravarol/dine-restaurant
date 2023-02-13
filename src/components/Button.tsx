@@ -4,6 +4,7 @@ import React from 'react';
 
 interface Props extends ButtonProps {
   isDark?: boolean;
+  component?: React.ElementType
 }
 
 interface StyledButtonProps {
@@ -11,7 +12,6 @@ interface StyledButtonProps {
 }
 
 const StyledButton = styled(MuiButton)<StyledButtonProps>(({ isDark, theme }) => ({
-  minWidth: 170,
   height: 64,
   color: isDark ? theme.palette.primary.main : theme.palette.common.white,
   paddingBlock: '25px 23px',
