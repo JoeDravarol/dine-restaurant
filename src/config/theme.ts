@@ -117,6 +117,18 @@ const theme = createTheme({
       desktop: 1439,
     },
   },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        html: {
+          overflowX: 'hidden', // Prevent horizontal scrollbar
+        },
+        body: {
+          overflowX: 'hidden', // Prevent horizontal scrollbar
+        },
+      },
+    },
+  },
 });
 
 export default theme;

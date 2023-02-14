@@ -31,14 +31,27 @@ const StyledCard = styled(Card)(({ theme }) => ({
     marginBottom: 118,
     maxWidth: 573,
   },
+  [theme.breakpoints.up('desktop')]: {
+    display: 'grid',
+    gridTemplateColumns: '540px 445px',
+    gridAutoFlow: 'column',
+    gridGap: 125,
+    alignItems: 'center',
+    margin: 'revert',
+
+    '&:nth-of-type(even)': {
+      gridTemplateColumns: '445px 540px',
+      picture: {
+        gridColumn: '2',
+      },
+    },
+  },
 }));
 
-const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
+const StyledCardMedia = styled(CardMedia)(() => ({
   boxShadow: '0 75px 100px -50px rgba(56, 66, 85, 0.5)',
   position: 'relative',
   zIndex: 5,
-  [theme.breakpoints.up('tablet')]: {
-  },
 })) as typeof CardMedia;
 
 const StyledCardContent = styled(CardContent)(({ theme }) => ({
@@ -50,7 +63,6 @@ const StyledCardContent = styled(CardContent)(({ theme }) => ({
   [theme.breakpoints.up('tablet')]: {
     maxWidth: 457,
     marginInline: 'auto',
-    // paddingInline: 12,
   },
 }));
 
@@ -67,7 +79,7 @@ const InfoCard: React.FC<Props> = ({ img, title, description, ...props }) => {
       <Container
         sx={{
           marginTop: { mobile: 6.375, tablet: 7 },
-          textAlign: 'center',
+          textAlign: { mobile: 'center', desktop: 'revert' },
         }}
         disableGutters
       >
@@ -77,8 +89,9 @@ const InfoCard: React.FC<Props> = ({ img, title, description, ...props }) => {
             fontSize={{ mobile: '2rem', tablet: '3rem' }}
             lineHeight={{ mobile: '2.5rem', tablet: '3rem' }}
             letterSpacing={{ mobile: '-0.003rem', tablet: '-0.031rem' }}
-            px={{ mobile: 4, tablet: 4.25 }}
-            mt={{ mobile: 4.5, tablet: 4.875 }}
+            px={{ mobile: 4, tablet: 4.25, desktop: 'revert' }}
+            pr={{ desktop: 6.75 }}
+            mt={{ mobile: 4.5, tablet: 4.875, desktop: 6.875 }}
             mb={{ mobile: 1.625, tablet: 3.375 }}
           >
             {title}

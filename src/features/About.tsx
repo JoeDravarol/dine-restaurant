@@ -2,10 +2,14 @@ import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import React from 'react';
 
+import desktopEnjoyablePlaceSm from '@/assets/homepage/enjoyable-place-desktop.jpg';
+import desktopEnjoyablePlaceMd from '@/assets/homepage/enjoyable-place-desktop@2x.jpg';
 import mobileEnjoyablePlaceSm from '@/assets/homepage/enjoyable-place-mobile.jpg';
 import mobileEnjoyablePlaceMd from '@/assets/homepage/enjoyable-place-mobile@2x.jpg';
 import tabletEnjoyablePlaceSm from '@/assets/homepage/enjoyable-place-tablet.jpg';
 import tabletEnjoyablePlaceMd from '@/assets/homepage/enjoyable-place-tablet@2x.jpg';
+import desktopLocallySourceSm from '@/assets/homepage/locally-sourced-desktop.jpg';
+import desktopLocallySourceMd from '@/assets/homepage/locally-sourced-desktop@2x.jpg';
 import mobileLocallySourceSm from '@/assets/homepage/locally-sourced-mobile.jpg';
 import mobileLocallySourceMd from '@/assets/homepage/locally-sourced-mobile@2x.jpg';
 import tabletLocallySourceSm from '@/assets/homepage/locally-sourced-tablet.jpg';
@@ -33,7 +37,6 @@ const StyledBox = styled(Box)(({ theme }) => ({
       backgroundImage: `url(${patternCurveTopLeft})`,
       top: 'revert',
       left: 'revert',
-      // left: 384,
       right: -511, // svgWidth - (tabletSize / 2)
       bottom: -118, // Last InfoCard bottom margin
     },
@@ -46,6 +49,26 @@ const StyledBox = styled(Box)(({ theme }) => ({
       top: 228,
       left: 471,
       zIndex: 5,
+    },
+    [theme.breakpoints.up('desktop')]: {
+      width: 1110,
+      marginInline: 'auto',
+
+      '&::before': {
+        left: -165,
+        top: 320,
+      },
+      '&::after': {
+        right: -165,
+        bottom: 0,
+      },
+      '.bg-pattern picture': {
+        marginBottom: -80,
+      },
+      '.bg-pattern::after': {
+        left: 1064,
+        top: 282,
+      },
     },
   },
 }));
@@ -61,6 +84,14 @@ const About: React.FC = () => {
       src: mobileEnjoyablePlaceSm.src,
       alt: 'Country landscape',
       sources: [
+        {
+          srcSet: desktopEnjoyablePlaceMd.src,
+          media: '(min-width: 1920px)',
+        },
+        {
+          srcSet: desktopEnjoyablePlaceSm.src,
+          media: '(min-width: 1440px)',
+        },
         {
           srcSet: tabletEnjoyablePlaceMd.src,
           media: '(min-width: 900px)',
@@ -87,6 +118,14 @@ const About: React.FC = () => {
       alt: 'Country landscape',
       sources: [
         {
+          srcSet: desktopLocallySourceMd.src,
+          media: '(min-width: 1920px)',
+        },
+        {
+          srcSet: desktopLocallySourceSm.src,
+          media: '(min-width: 1440px)',
+        },
+        {
           srcSet: tabletLocallySourceMd.src,
           media: '(min-width: 900px)',
         },
@@ -106,7 +145,8 @@ const About: React.FC = () => {
     <StyledBox>
       <InfoCard
         sx={{
-          marginTop: { mobile: '-72px', tablet: '-96px' },
+          marginTop: { mobile: '-72px', tablet: '-96px', desktop: '-70px' },
+          marginBottom: { desktop: '121px' },
         }}
         {...enjoyablePlace}
       />
