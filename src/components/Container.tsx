@@ -7,9 +7,9 @@ type Props = ContainerProps & {
   component?: React.ElementType
 }
 
-const Container: React.FC<Props> = ({ children, ...rest }) => {
+const Container: React.FC<Props> = ({ children, sx, ...rest }) => {
   return (
-    <MuiContainer sx={{ fontSize: 0 }} {...rest}>
+    <MuiContainer sx={{ fontSize: 0, lineHeight: 0, ...sx }} {...rest}>
       <PatternDivide />
       {children}
     </MuiContainer>

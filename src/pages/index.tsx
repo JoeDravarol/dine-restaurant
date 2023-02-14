@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import About from '@/features/About';
 import Hero from '@/features/Hero';
 
 export default function Home() {
@@ -12,6 +13,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
+      <main>
+        <About />
+      </main>
     </>
   );
 }
