@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 import About from '@/features/About';
 import Hero from '@/features/Hero';
+import MenuHighlights from '@/features/MenuHighlights';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <main>
         <About />
+        <MenuHighlights />
       </main>
     </>
   );
