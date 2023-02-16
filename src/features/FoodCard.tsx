@@ -42,12 +42,35 @@ const StyledCard = styled(Card)(({ theme }) => ({
       content: 'initial',
     },
   },
+  [theme.breakpoints.up('tablet')]: {
+    textAlign: 'left',
+    paddingBottom: 24,
+
+    display: 'grid',
+    gridTemplateColumns: '128px 383px',
+    gridGap: 62,
+
+    '&::before': {
+      content: '""',
+      width: 32,
+      height: 1,
+      backgroundColor: theme.palette.secondary.main,
+      position: 'absolute',
+      top: 18,
+      left: 128,
+    },
+  },
 }));
 
-const StyledCardContent = styled(CardContent)(() => ({
+const StyledCardContent = styled(CardContent)(({ theme }) => ({
   padding: 'revert',
   '&:last-of-type': {
     paddingBottom: 'revert',
+  },
+
+  [theme.breakpoints.up('tablet')]: {
+    paddingTop: theme.spacing(1),
+    paddingRight: theme.spacing(3.5),
   },
 }));
 
@@ -64,7 +87,7 @@ const FoodCard: React.FC<Props> = ({ img, title, description, ...props }) => {
       <StyledCardContent>
         <Typography
           variant="h3"
-          mt={{ mobile: 4.5 }}
+          mt={{ mobile: 4.5, tablet: 0 }}
           mb={{ mobile: 0.75 }}
           textTransform="capitalize"
         >
