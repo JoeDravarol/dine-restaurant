@@ -19,16 +19,18 @@ const StyledBleedContainer = styled(Container)(({ theme }) => ({
   paddingTop: 72,
   paddingBottom: 102,
   paddingInline: theme.spacing(3),
-  backgroundColor: theme.palette.primary.main,
   textAlign: 'center',
   color: theme.palette.common.white,
-  '&.MuiContainer-root': {
-    maxWidth: '100%',
-  },
 
   [theme.breakpoints.up('tablet')]: {
     paddingInline: 97,
     paddingBlock: 96,
+  },
+  [theme.breakpoints.up('desktop')]: {
+    textAlign: 'left',
+    paddingInline: 165,
+    paddingTop: 200,
+    paddingBottom: 120,
   },
 }));
 
@@ -37,6 +39,12 @@ const StyledContainer = styled(Box)(({ theme }) => ({
   marginInline: 'auto',
   [theme.breakpoints.up('tablet')]: {
     maxWidth: 573,
+  },
+  [theme.breakpoints.up('desktop')]: {
+    maxWidth: 1110,
+    display: 'grid',
+    gridTemplateColumns: '445px 540px',
+    gridGap: 125,
   },
 }));
 
@@ -109,46 +117,50 @@ const MenuHighlights: React.FC = () => {
   };
 
   return (
-    <StyledBleedContainer component="section" disableGutters>
-      <StyledContainer>
-        <Box
-          mt={{ mobile: 4.5, tablet: 4.875 }}
-          mb={{ mobile: 10.625, tablet: 6.75 }}
-          maxWidth={{ tablet: 445 }}
-          mx={{ tablet: 'auto' }}
-        >
-          <Typography
-            variant="h2"
-            fontSize={{ mobile: '2rem', tablet: '3rem' }}
-            lineHeight={{ mobile: '2.5rem', tablet: '3rem' }}
-            letterSpacing={{ mobile: '-0.025rem', tablet: '-0.031rem' }}
-            mb={{ mobile: 1.625, tablet: 3.375 }}
+    <Box component="section" bgcolor="primary.main">
+      <StyledBleedContainer maxWidth="desktop" disableGutters>
+        <StyledContainer>
+          <Box
+            mt={{ mobile: 4.5, tablet: 4.875, desktop: 7.75 }}
+            mb={{ mobile: 10.625, tablet: 6.75 }}
+            maxWidth={{ tablet: 445 }}
+            mx={{ tablet: 'auto' }}
           >
-            A few highlights from our menu
-          </Typography>
-          <Typography
-            variant="body2"
-            fontSize={{ tablet: '1.25rem' }}
-            lineHeight={{ tablet: '1.875rem' }}
-          >
-            We cater for all dietary requirements, but here&apos;s a glimpse at some of our diner&apos;s favourites. Our
-            menu is revamped every season.
-          </Typography>
-        </Box>
+            <Typography
+              variant="h2"
+              fontSize={{ mobile: '2rem', tablet: '3rem' }}
+              lineHeight={{ mobile: '2.5rem', tablet: '3rem' }}
+              letterSpacing={{ mobile: '-0.025rem', tablet: '-0.031rem' }}
+              mb={{ mobile: 1.625, tablet: 3.375 }}
+            >
+              A few highlights from our menu
+            </Typography>
+            <Typography
+              variant="body2"
+              fontSize={{ tablet: '1.25rem' }}
+              lineHeight={{ tablet: '1.875rem' }}
+            >
+              We cater for all dietary requirements, but here&apos;s a glimpse at some of our diner&apos;s favourites.
+              Our menu is revamped every season.
+            </Typography>
+          </Box>
 
-        <FoodCard {...searedSalmon}>
-          <Typography variant="body2">{searedSalmon.description}</Typography>
-        </FoodCard>
+          <Box mt={{ desktop: '50px' }}>
+            <FoodCard {...searedSalmon}>
+              <Typography variant="body2">{searedSalmon.description}</Typography>
+            </FoodCard>
 
-        <FoodCard {...filetMignon}>
-          <Typography variant="body2">{filetMignon.description}</Typography>
-        </FoodCard>
+            <FoodCard {...filetMignon}>
+              <Typography variant="body2">{filetMignon.description}</Typography>
+            </FoodCard>
 
-        <FoodCard {...chocolateMousse}>
-          <Typography variant="body2">{chocolateMousse.description}</Typography>
-        </FoodCard>
-      </StyledContainer>
-    </StyledBleedContainer>
+            <FoodCard {...chocolateMousse}>
+              <Typography variant="body2">{chocolateMousse.description}</Typography>
+            </FoodCard>
+          </Box>
+        </StyledContainer>
+      </StyledBleedContainer>
+    </Box>
   );
 };
 
