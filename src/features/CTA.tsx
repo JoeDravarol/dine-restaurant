@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
+import desktopBgSm from '@/assets/homepage/ready-bg-desktop.jpg';
+import desktopBgMd from '@/assets/homepage/ready-bg-desktop@2x.jpg';
 import mobileBgSm from '@/assets/homepage/ready-bg-mobile.jpg';
 import mobileBgMd from '@/assets/homepage/ready-bg-mobile@2x.jpg';
 import tabletBgSm from '@/assets/homepage/ready-bg-tablet.jpg';
@@ -25,10 +27,24 @@ const StyledBox = styled(Box)(({ theme }) => ({
     paddingTop: 72,
     paddingBottom: 64,
   },
+  [theme.breakpoints.up('desktop')]:  {
+    textAlign: 'revert',
+    display: 'grid',
+    gridTemplateColumns: '1fr 615px 250px 245px 1fr',
+    gridAutoFlow: 'dense',
+    justifyContent: 'center',
+    paddingBlock: 88,
+    paddingInline: 165,
+
+    a: {
+      gridColumn: 4,
+    },
+  },
 }));
 
 const StyledImage = styled(Image)(() => ({
   width: '100%',
+  height: '100%',
   pointerEvents: 'none',
   position: 'absolute',
   objectPosition: 'center',
@@ -42,6 +58,8 @@ const CTA: React.FC = () => {
   return (
     <StyledBox component="section">
       <picture>
+        <source srcSet={desktopBgMd.src} media="(min-width: 1600px)" />
+        <source srcSet={desktopBgSm.src} media="(min-width: 1440px)" />
         <source srcSet={tabletBgMd.src} media="(min-width: 900px)" />
         <source srcSet={tabletBgSm.src} media="(min-width: 768px)" />
         <source srcSet={mobileBgMd.src} media="(min-width: 400px)" />
@@ -53,9 +71,9 @@ const CTA: React.FC = () => {
         fontSize={{ mobile: '2rem', tablet: '3rem' }}
         lineHeight={{ mobile: '2.5rem', tablet: '3rem' }}
         letterSpacing={{ mobile: '-0.025rem', tablet: '-0.031rem' }}
-        mb={{ mobile: 2.5, tablet: 3 }}
+        mb={{ mobile: 2.5, tablet: 3, desktop: 0 }}
       >
-        Ready to make a reservations?
+        Ready to make a reservation?
       </Typography>
 
       <Button sx={{ width: 245 }} component={Link} href="/booking">Book a table</Button>
