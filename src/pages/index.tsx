@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 import About from '@/features/About';
+import Footer from '@/features/Footer';
 import Hero from '@/features/Hero';
 import MenuHighlights from '@/features/MenuHighlights';
 
@@ -17,6 +18,8 @@ export default function Home() {
       <main>
         <About />
         <MenuHighlights />
+
+        <Footer />
       </main>
     </>
   );
