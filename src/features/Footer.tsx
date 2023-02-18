@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import React from 'react';
@@ -26,6 +27,13 @@ const StyledBox = styled(Box)(({ theme }) => ({
     maxWidth: 690,
     marginInline: 'auto',
   },
+  [theme.breakpoints.up('desktop')]: {
+    height: 240,
+    paddingInline: 'revert',
+    maxWidth: 1110,
+    gridTemplateColumns: '1fr 814px',
+    gridGap: 192,
+  },
 }));
 
 const StyledTypography = styled(Typography)(() => ({
@@ -41,7 +49,11 @@ const Footer: React.FC = () => {
       <StyledBox>
         <Logo />
 
-        <Box component="section">
+        <Stack
+          component="section"
+          direction={{ desktop: 'row' }}
+          spacing={{ desktop: 15.5 }}
+        >
           <StyledTypography
             mt={{ mobile: 5.25, tablet: 0 }}
             mb={{ mobile: 4 }}
@@ -62,7 +74,7 @@ const Footer: React.FC = () => {
               Sat - Sun: 09:00 am - 11:30 pm
             </StyledTypography>
           </Box>
-        </Box>
+        </Stack>
       </StyledBox>
     </Box>
   );
