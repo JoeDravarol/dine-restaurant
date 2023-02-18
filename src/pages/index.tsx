@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 import About from '@/features/About';
+import CTA from '@/features/CTA';
 import Footer from '@/features/Footer';
 import Hero from '@/features/Hero';
 import MenuHighlights from '@/features/MenuHighlights';
@@ -18,7 +19,7 @@ export default function Home() {
       <main>
         <About />
         <MenuHighlights />
-
+        <CTA />
         <Footer />
       </main>
     </>
